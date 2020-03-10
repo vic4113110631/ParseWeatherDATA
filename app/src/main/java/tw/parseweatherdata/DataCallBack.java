@@ -6,5 +6,4 @@ import tw.parseweatherdata.Model.MinT;
 
 interface DataCallBack {
     void notifyData(ArrayList<MinT> minTList);
-    void onItemClick(MinT minT);
 }

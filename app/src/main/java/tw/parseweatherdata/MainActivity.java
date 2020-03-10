@@ -29,8 +29,14 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
         boolean EXPERIENCE = sp.getBoolean("EXPERIENCE",false);
 
-        if(EXPERIENCE) {
+        if(EXPERIENCE){
             Toast.makeText(getApplicationContext(), "歡迎回來" , Toast.LENGTH_LONG).show();
+        }
+
+        if(!EXPERIENCE) {
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean("EXPERIENCE", true);
+            editor.apply();
         }
     }
 
@@ -48,11 +54,6 @@ public class MainActivity extends AppCompatActivity {
 
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(linearLayoutManager);
-            }
-
-            @Override
-            public void onItemClick(MinT minT) {
-
             }
 
         };
